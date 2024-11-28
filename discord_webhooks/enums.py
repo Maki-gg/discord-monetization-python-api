@@ -1,5 +1,9 @@
 from enum import IntEnum, StrEnum
-from typing import Final
+from typing import (
+    Final,
+    Literal,
+    Union,
+)
 
 
 __all__: Final[tuple[str, ...]] = (
@@ -15,6 +19,7 @@ __all__: Final[tuple[str, ...]] = (
     "DiscordGuildVerificationLevelEnum",
     "DiscordStickerTypeEnum",
     "DiscordStickerFormatTypeEnum",
+    "EntitlementTypeEnumLiterals",
 )
 
 
@@ -43,6 +48,18 @@ class EntitlementTypeEnum(IntEnum):
     USER_GIFT = 6
     PREMIUM_PURCHASE = 7
     APPLICATION_SUBSCRIPTION = 8
+
+
+EntitlementTypeEnumLiterals = Union[
+    Literal[EntitlementTypeEnum.PURCHASE],
+    Literal[EntitlementTypeEnum.PREMIUM_SUBSCRIPTION],
+    Literal[EntitlementTypeEnum.DEVELOPER_GIFT],
+    Literal[EntitlementTypeEnum.TEST_MODE_PURCHASE],
+    Literal[EntitlementTypeEnum.FREE_PURCHASE],
+    Literal[EntitlementTypeEnum.USER_GIFT],
+    Literal[EntitlementTypeEnum.PREMIUM_PURCHASE],
+    Literal[EntitlementTypeEnum.APPLICATION_SUBSCRIPTION],
+]
 
 
 class DiscordGuildNSFWLevelEnum(IntEnum):
