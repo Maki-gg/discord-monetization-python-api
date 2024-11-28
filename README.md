@@ -11,3 +11,17 @@ This code, released under the **MIT license**, is part of our protest against th
 ## Usage
 
 Feel free to copy and use this code as needed. It’s designed to be a clear example of how you should implement the necessary logic for handling Discord monetization.
+
+## `pip install discord-webhooks-python`
+See [examples/](examples/) for more in-depth examples.
+```python
+wh = WebhookService(
+    client_public_key="YOUR_CLIENT_PUBLIC_KEY_GOES_HERE",
+)
+
+@wh.command(event=WebhookEventTypeEnum.ENTITLEMENT_CREATE)
+async def new_entitlement_created(event: WebhookPayloadEventEntitlementCreate) -> None:
+    print(f"New entitlement with ID {event['data']['id']}!")
+
+wh.start()
+```
