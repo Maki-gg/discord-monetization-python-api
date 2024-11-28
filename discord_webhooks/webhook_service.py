@@ -8,6 +8,7 @@ from typing import (
     Dict,
     Final,
     Optional,
+    Tuple,
     cast,
 )
 
@@ -25,7 +26,7 @@ from .types import (
 )
 
 
-__all__: Final[tuple[str, ...]] = (
+__all__: Final[Tuple[str, ...]] = (
     "WebhookService",
 )
 

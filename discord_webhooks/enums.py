@@ -2,11 +2,12 @@ from enum import IntEnum, StrEnum
 from typing import (
     Final,
     Literal,
+    Tuple,
     Union,
 )
 
 
-__all__: Final[tuple[str, ...]] = (
+__all__: Final[Tuple[str, ...]] = (
     "WebhookEventTypeEnum",
     "WebhookTypeEnum",
     "IntegrationTypeEnum",

@@ -3,9 +3,11 @@ from typing import (
     Awaitable,
     Callable,
     Final,
+    List,
     Literal,
     NotRequired,
     Optional,
+    Tuple,
     TypedDict,
     Union,
 )
@@ -26,7 +28,7 @@ from discord_webhooks.enums import (
 )
 
 
-__all__: Final[tuple[str, ...]] = (
+__all__: Final[Tuple[str, ...]] = (
     "JSONResponseError",
     "WebhookPayload",
     "WebhookHandler",
@@ -103,7 +105,7 @@ class DiscordRole(TypedDict):
 class DiscordEmoji(TypedDict):
     id: Optional[str]
     name: Optional[str]
-    roles: NotRequired[list[str]]
+    roles: NotRequired[List[str]]
     user: DiscordUser
     require_colons: NotRequired[bool]
     managed: NotRequired[bool]
@@ -176,7 +178,7 @@ class DiscordGuild(TypedDict):
     approximate_presence_count: NotRequired[int]
     welcome_screen: DiscordWelcomeScreen
     nsfw_level: DiscordGuildNSFWLevelEnumLiterals
-    stickers: NotRequired[list[DiscordSticker]]
+    stickers: NotRequired[List[DiscordSticker]]
     premium_progress_bar_enabled: bool
     safety_alerts_channel_id: Optional[str]
 
