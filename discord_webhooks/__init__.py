@@ -40,3 +40,5 @@ __all__: Final[Tuple[str, ...]] = (
     "WebhookService",
     "WebhookEventTypeEnum",
 )
+
+__version__ = "1.0.0"
