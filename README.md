@@ -1,4 +1,4 @@
-# Discord Monetization Python API
+# Discord Webhook Python
 
 This repository is a response to Discord’s recent monetization mandates, which unfairly require developers offering paid features in their apps to list them on the Discord store. This policy imposes heavy restrictions and fees (15-30%) that developers are forced to absorb. Additionally, deals have been offered to the largest apps on the platform, and favoritism is evident in the moderation of these policies.
 
