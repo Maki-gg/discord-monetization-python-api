@@ -20,6 +20,14 @@ __all__: Final[tuple[str, ...]] = (
     "DiscordStickerTypeEnum",
     "DiscordStickerFormatTypeEnum",
     "EntitlementTypeEnumLiterals",
+    "DiscordStickerTypeEnumLiterals",
+    "DiscordStickerFormatTypeEnumLiterals",
+    "DiscordGuildVerificationLevelEnumLiterals",
+    "DiscordGuildDefaultMessageNotificationsLevelEnumLiterals",
+    "DiscordGuildExplicitContentFilterLevelEnumLiterals",
+    "DiscordGuildMFALevelEnumLiterals",
+    "DiscordGuildPremiumTierEnumLiterals",
+    "DiscordGuildNSFWLevelEnumLiterals",
 )
 
 
@@ -69,6 +77,14 @@ class DiscordGuildNSFWLevelEnum(IntEnum):
     AGE_RESTRICTED = 3
 
 
+DiscordGuildNSFWLevelEnumLiterals = Union[
+    Literal[DiscordGuildNSFWLevelEnum.DEFAULT],
+    Literal[DiscordGuildNSFWLevelEnum.EXPLICIT],
+    Literal[DiscordGuildNSFWLevelEnum.SAFE],
+    Literal[DiscordGuildNSFWLevelEnum.AGE_RESTRICTED],
+]
+
+
 class DiscordGuildPremiumTierEnum(IntEnum):
     NONE = 0
     TIER_1 = 1
@@ -76,9 +92,23 @@ class DiscordGuildPremiumTierEnum(IntEnum):
     TIER_3 = 3
 
 
+DiscordGuildPremiumTierEnumLiterals = Union[
+    Literal[DiscordGuildPremiumTierEnum.NONE],
+    Literal[DiscordGuildPremiumTierEnum.TIER_1],
+    Literal[DiscordGuildPremiumTierEnum.TIER_2],
+    Literal[DiscordGuildPremiumTierEnum.TIER_3],
+]
+
+
 class DiscordGuildMFALevelEnum(IntEnum):
     NONE = 0
     ELEVATED = 1
+
+
+DiscordGuildMFALevelEnumLiterals = Union[
+    Literal[DiscordGuildMFALevelEnum.NONE],
+    Literal[DiscordGuildMFALevelEnum.ELEVATED],
+]
 
 
 class DiscordGuildExplicitContentFilterLevelEnum(IntEnum):
@@ -87,9 +117,22 @@ class DiscordGuildExplicitContentFilterLevelEnum(IntEnum):
     ALL_MEMBERS = 2
 
 
+DiscordGuildExplicitContentFilterLevelEnumLiterals = Union[
+    Literal[DiscordGuildExplicitContentFilterLevelEnum.DISABLED],
+    Literal[DiscordGuildExplicitContentFilterLevelEnum.MEMBERS_WITHOUT_ROLES],
+    Literal[DiscordGuildExplicitContentFilterLevelEnum.ALL_MEMBERS],
+]
+
+
 class DiscordGuildDefaultMessageNotificationsLevelEnum(IntEnum):
     ALL_MESSAGES = 0
     ONLY_MENTIONS = 1
+
+
+DiscordGuildDefaultMessageNotificationsLevelEnumLiterals = Union[
+    Literal[DiscordGuildDefaultMessageNotificationsLevelEnum.ALL_MESSAGES],
+    Literal[DiscordGuildDefaultMessageNotificationsLevelEnum.ONLY_MENTIONS],
+]
 
 
 class DiscordGuildVerificationLevelEnum(IntEnum):
@@ -100,9 +143,24 @@ class DiscordGuildVerificationLevelEnum(IntEnum):
     VERY_HIGH = 4
 
 
+DiscordGuildVerificationLevelEnumLiterals = Union[
+    Literal[DiscordGuildVerificationLevelEnum.NONE],
+    Literal[DiscordGuildVerificationLevelEnum.LOW],
+    Literal[DiscordGuildVerificationLevelEnum.MEDIUM],
+    Literal[DiscordGuildVerificationLevelEnum.HIGH],
+    Literal[DiscordGuildVerificationLevelEnum.VERY_HIGH]
+]
+
+
 class DiscordStickerTypeEnum(IntEnum):
     STANDARD = 1
     GUILD = 2
+
+
+DiscordStickerTypeEnumLiterals = Union[
+    Literal[DiscordStickerTypeEnum.STANDARD],
+    Literal[DiscordStickerTypeEnum.GUILD],
+]
 
 
 class DiscordStickerFormatTypeEnum(IntEnum):
@@ -110,3 +168,11 @@ class DiscordStickerFormatTypeEnum(IntEnum):
     APNG = 2
     LOTTIE = 3
     GIF = 4
+
+
+DiscordStickerFormatTypeEnumLiterals = Union[
+    Literal[DiscordStickerFormatTypeEnum.PNG],
+    Literal[DiscordStickerFormatTypeEnum.APNG],
+    Literal[DiscordStickerFormatTypeEnum.LOTTIE],
+    Literal[DiscordStickerFormatTypeEnum.GIF],
+]

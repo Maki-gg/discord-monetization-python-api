@@ -1,24 +1,25 @@
 from typing import (
     Any,
+    Awaitable,
+    Callable,
     Final,
     Literal,
     NotRequired,
     Optional,
     TypedDict,
-    TypeVar,
     Union,
 )
 
 from discord_webhooks.enums import (
-    DiscordGuildDefaultMessageNotificationsLevelEnum,
-    DiscordGuildExplicitContentFilterLevelEnum,
-    DiscordGuildMFALevelEnum,
-    DiscordGuildNSFWLevelEnum,
-    DiscordGuildPremiumTierEnum,
-    DiscordGuildVerificationLevelEnum,
-    DiscordStickerFormatTypeEnum,
-    DiscordStickerTypeEnum,
-    EntitlementTypeEnum,
+    DiscordGuildDefaultMessageNotificationsLevelEnumLiterals,
+    DiscordGuildExplicitContentFilterLevelEnumLiterals,
+    DiscordGuildMFALevelEnumLiterals,
+    DiscordGuildNSFWLevelEnumLiterals,
+    DiscordGuildPremiumTierEnumLiterals,
+    DiscordGuildVerificationLevelEnumLiterals,
+    DiscordStickerFormatTypeEnumLiterals,
+    DiscordStickerTypeEnumLiterals,
+    EntitlementTypeEnumLiterals,
     IntegrationTypeEnum,
     WebhookEventTypeEnum,
     WebhookTypeEnum,
@@ -28,6 +29,10 @@ from discord_webhooks.enums import (
 __all__: Final[tuple[str, ...]] = (
     "JSONResponseError",
     "WebhookPayload",
+    "WebhookHandler",
+    "WebhookPayloadEventApplicationAuthorized",
+    "WebhookPayloadEventEntitlementCreate",
+    "WebhookPayloadEventQuestUserEnrollment",
 )
 
 
@@ -35,10 +40,10 @@ class JSONResponseError(TypedDict):
     error: str
 
 
-AppInstallScopes = TypeVar("AppInstallScopes", bound=Union[
+AppInstallScopes = Union[
     Literal["applications.commands"],
     Literal["bot"],
-])
+]
 
 
 class DiscordUserAvatarDecorationData(TypedDict):
@@ -112,8 +117,8 @@ class DiscordSticker(TypedDict):
     name: str
     description: Optional[str]
     tags: NotRequired[str]
-    type: DiscordStickerTypeEnum
-    format_type: DiscordStickerFormatTypeEnum
+    type: DiscordStickerTypeEnumLiterals
+    format_type: DiscordStickerFormatTypeEnumLiterals
     available: NotRequired[bool]
     guild_id: NotRequired[bool]
     user: NotRequired[DiscordUser]
@@ -145,13 +150,13 @@ class DiscordGuild(TypedDict):
     afk_timeout: int
     widget_enabled: NotRequired[bool]
     widget_channel_id: NotRequired[Optional[str]]
-    verification_level: DiscordGuildVerificationLevelEnum
-    default_message_notifications: DiscordGuildDefaultMessageNotificationsLevelEnum
-    explicit_content_filter: DiscordGuildExplicitContentFilterLevelEnum
+    verification_level: DiscordGuildVerificationLevelEnumLiterals
+    default_message_notifications: DiscordGuildDefaultMessageNotificationsLevelEnumLiterals
+    explicit_content_filter: DiscordGuildExplicitContentFilterLevelEnumLiterals
     roles: list[DiscordRole]
     emojis: list[DiscordEmoji]
     features: list[str]
-    mfa_level: DiscordGuildMFALevelEnum
+    mfa_level: DiscordGuildMFALevelEnumLiterals
     application_id: Optional[str]
     system_channel_id: Optional[str]
     system_channel_flags: int
@@ -161,7 +166,7 @@ class DiscordGuild(TypedDict):
     vanity_url_code: Optional[str]
     description: Optional[str]
     banner: Optional[str]
-    premium_tier: DiscordGuildPremiumTierEnum
+    premium_tier: DiscordGuildPremiumTierEnumLiterals
     premium_subscription_count: NotRequired[int]
     preferred_locale: str
     public_updates_channel_id: Optional[str]
@@ -170,7 +175,7 @@ class DiscordGuild(TypedDict):
     approximate_member_count: NotRequired[int]
     approximate_presence_count: NotRequired[int]
     welcome_screen: DiscordWelcomeScreen
-    nsfw_level: DiscordGuildNSFWLevelEnum
+    nsfw_level: DiscordGuildNSFWLevelEnumLiterals
     stickers: NotRequired[list[DiscordSticker]]
     premium_progress_bar_enabled: bool
     safety_alerts_channel_id: Optional[str]
@@ -194,7 +199,7 @@ class WebhookPayloadEventEntitlementCreateData(TypedDict):
     application_id: str
     user_id: Optional[str]
     promotion_id: Optional[str]
-    type: EntitlementTypeEnum
+    type: EntitlementTypeEnumLiterals
     deleted: bool
     gift_code_flags: int
     consumed: Optional[bool]
@@ -219,14 +224,12 @@ class WebhookPayloadEventQuestUserEnrollment(WebhookPayloadEventBase):
     data: dict[str, Any]  # Undocumented.
 
 
-WebhookPayloadEvent = TypeVar(
-    name="WebhookPayloadEvent",
-    bound=Union[
-        WebhookPayloadEventApplicationAuthorized,
-        WebhookPayloadEventEntitlementCreate,
-        WebhookPayloadEventQuestUserEnrollment,
-    ],
-)
+WebhookPayloadEvent = Union[
+    WebhookPayloadEventApplicationAuthorized,
+    WebhookPayloadEventEntitlementCreate,
+    WebhookPayloadEventQuestUserEnrollment,
+]
+
 
 
 class WebhookPayload_Ping(TypedDict):
@@ -242,10 +245,14 @@ class WebhookPayload_Event(TypedDict):
     event: WebhookPayloadEvent
 
 
-WebhookPayload = TypeVar(
-    name="WebhookPayload",
-    bound=Union[
-        WebhookPayload_Ping,
-        WebhookPayload_Event,
-    ],
-)
+WebhookPayload = Union[
+    WebhookPayload_Ping,
+    WebhookPayload_Event,
+]
+
+
+WebhookHandler = Union[
+    Callable[[WebhookPayloadEventApplicationAuthorized], Awaitable[None]],
+    Callable[[WebhookPayloadEventEntitlementCreate], Awaitable[None]],
+    Callable[[WebhookPayloadEventQuestUserEnrollment], Awaitable[None]],
+]
