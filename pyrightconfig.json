@@ -1,0 +1,32 @@
+{
+    "typeCheckingMode": "strict",
+    "reportMissingImports": true,
+    "reportMissingTypeStubs": false,
+    "reportUnboundVariable": true,
+    "reportUnusedImport": true,
+    "reportUnusedVariable": true,
+    "reportGeneralTypeIssues": true,
+    "reportOptionalSubscript": true,
+    "reportOptionalMemberAccess": true,
+    "reportOptionalOperand": true,
+    "reportOptionalCall": true,
+    "reportUntypedFunctionDecorator": true,
+    "reportUntypedClassDecorator": true,
+    "reportUntypedNamedTuple": true,
+    "reportUnnecessaryTypeIgnoreComment": true,
+    "reportIncompatibleVariableOverride": true,
+    "reportIncompatibleMethodOverride": true,
+    "reportIncompatibleConstructor": true,
+    "reportPrivateImportUsage": true,
+    "reportSelfClsParameterName": true,
+    "reportInvalidTypeVarUse": true,
+    "reportUnnecessaryIsInstance": true,
+    "reportPropertyTypeMismatch": true,
+    "reportFunctionMemberAccess": true,
+    "useLibraryCodeForTypes": true,
+    "reportPrivateUsage": false,
+    "exclude": [
+        "**/node_modules",
+        "**/__pycache__"
+    ]
+}
