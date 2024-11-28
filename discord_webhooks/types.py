@@ -1,6 +1,28 @@
-from typing import Any, Final, Literal, NotRequired, Optional, TypeVar, TypedDict, Union
+from typing import (
+    Any,
+    Final,
+    Literal,
+    NotRequired,
+    Optional,
+    TypedDict,
+    TypeVar,
+    Union,
+)
 
-from discord_webhooks.enums import DiscordGuildDefaultMessageNotificationsLevelEnum, DiscordGuildExplicitContentFilterLevelEnum, DiscordGuildMFALevelEnum, DiscordGuildNSFWLevelEnum, DiscordGuildPremiumTierEnum, DiscordGuildVerificationLevelEnum, DiscordStickerFormatTypeEnum, DiscordStickerTypeEnum, EntitlementTypeEnum, IntegrationTypeEnum, WebhookEventTypeEnum, WebhookTypeEnum
+from discord_webhooks.enums import (
+    DiscordGuildDefaultMessageNotificationsLevelEnum,
+    DiscordGuildExplicitContentFilterLevelEnum,
+    DiscordGuildMFALevelEnum,
+    DiscordGuildNSFWLevelEnum,
+    DiscordGuildPremiumTierEnum,
+    DiscordGuildVerificationLevelEnum,
+    DiscordStickerFormatTypeEnum,
+    DiscordStickerTypeEnum,
+    EntitlementTypeEnum,
+    IntegrationTypeEnum,
+    WebhookEventTypeEnum,
+    WebhookTypeEnum,
+)
 
 
 __all__: Final[tuple[str, ...]] = (
