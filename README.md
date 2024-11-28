@@ -1,6 +1,3 @@
-> [!CAUTION]
-> This is **NOT READY** for public use, it is very much so **STILL IN DEVELOPMENT AND INCOMPLETE**. While this caution banner remains, we strongly advice **AGAINST** using this.
-
 # Discord Monetization Python API
 
 This repository is a response to Discord’s recent monetization mandates, which unfairly require developers offering paid features in their apps to list them on the Discord store. This policy imposes heavy restrictions and fees (15-30%) that developers are forced to absorb. Additionally, deals have been offered to the largest apps on the platform, and favoritism is evident in the moderation of these policies.
