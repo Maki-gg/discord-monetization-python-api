@@ -1,4 +1,5 @@
 from typing import Final, Tuple
+
 from .enums import WebhookEventTypeEnum
 from .types import (
     WebhookPayloadEventApplicationAuthorized,
